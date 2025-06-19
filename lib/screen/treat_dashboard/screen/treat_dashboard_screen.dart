@@ -506,335 +506,332 @@ class _TreatDashboardScreenState extends State<TreatDashboardScreen> {
                       ),
                       sizedBoxWithHeight(40),
                       Hba1cGraph(),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Key Metrics",
-                              style: GoogleFonts.roboto(
-                                color: AppColors.headingcolor,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "HbA1c Trend: HbA1c dropping from ",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "8.2% → 6.4%",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.black,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "Fasting Glucose: ",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "110 mg/dL",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.black,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "(Latest)",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "Postprandial Glucose: ",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "160 mg/dL",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.black,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "(Latest)",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "Medication Adherence: ",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "90%",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.black,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: "Last Doctor Visit: ",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.grey,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: "May 1, 2025",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.black,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Lifestyle",
-                              style: GoogleFonts.roboto(
-                                color: AppColors.headingcolor,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Container(
-                              height: 44,
-                              width: double.infinity,
-                              padding:
-                                  const EdgeInsets.only(left: 20, right: 20),
-                              decoration: BoxDecoration(
-                                color: AppColors.containercolor,
-                                borderRadius: BorderRadius.circular(37),
-                              ),
-                              child: Center(
-                                child: Row(
-                                  children: [
-                                    Image.asset(
-                                      height: 20,
-                                      width: 20,
-                                      "assets/images/correct_circle_outline.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                                    sizedBoxWithWidth(10),
-                                    Text(
-                                      "Low-carb diet followed 70%",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.green,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Container(
-                              height: 44,
-                              width: double.infinity,
-                              padding:
-                                  const EdgeInsets.only(left: 20, right: 20),
-                              decoration: BoxDecoration(
-                                color: AppColors.containercolor,
-                                borderRadius: BorderRadius.circular(37),
-                              ),
-                              child: Center(
-                                child: Row(
-                                  children: [
-                                    Image.asset(
-                                      height: 20,
-                                      width: 20,
-                                      "assets/images/correct_circle_outline.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                                    sizedBoxWithWidth(10),
-                                    Text(
-                                      "Walking 4x/week",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.green,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.redcontainercolor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Notes",
-                                  style: GoogleFonts.roboto(
-                                    color: AppColors.black,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Image.asset(
-                                  height: 20,
-                                  width: 20,
-                                  "assets/images/warning_symbol.png",
-                                  fit: BoxFit.cover,
-                                ),
-                              ],
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text(
-                              "Time for new HbA1c test",
-                              style: GoogleFonts.roboto(
-                                color: AppColors.red,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Text(
-                              "Ask doctor about tapering medicine if trend continues",
-                              maxLines: 2,
-                              style: GoogleFonts.roboto(
-                                color: AppColors.red,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
                     ],
                   ),
                 ),
-                sizedBoxWithHeight(15),
-                SizedBox(
-                  height: 510.h,
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1.2, //5.0 in tab and laptop view
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                    ),
-                    itemCount: provider.gridcardslist.length,
-                    itemBuilder: (context, index) => InkWell(
-                      onTap: () {},
-                      child: GridCards(
-                          subject: provider.gridcardslist[index]["subject"],
-                          image: provider.gridcardslist[index]["image"]),
-                    ),
+                sizedBoxWithHeight(10),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Key Metrics",
+                        style: GoogleFonts.roboto(
+                          color: AppColors.headingcolor,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "HbA1c Trend: HbA1c dropping from ",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "8.2% → 6.4%",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.black,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Fasting Glucose: ",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "110 mg/dL",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.black,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "(Latest)",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Postprandial Glucose: ",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "160 mg/dL",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.black,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "(Latest)",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Medication Adherence: ",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "90%",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.black,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Last Doctor Visit: ",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.grey,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "May 1, 2025",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.black,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                sizedBoxWithHeight(10),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Lifestyle",
+                        style: GoogleFonts.roboto(
+                          color: AppColors.headingcolor,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Container(
+                        height: 44,
+                        width: double.infinity,
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: AppColors.containercolor,
+                          borderRadius: BorderRadius.circular(37),
+                        ),
+                        child: Center(
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                height: 20,
+                                width: 20,
+                                "assets/images/correct_circle_outline.png",
+                                fit: BoxFit.cover,
+                              ),
+                              sizedBoxWithWidth(10),
+                              Text(
+                                "Low-carb diet followed 70%",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.green,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Container(
+                        height: 44,
+                        width: double.infinity,
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        decoration: BoxDecoration(
+                          color: AppColors.containercolor,
+                          borderRadius: BorderRadius.circular(37),
+                        ),
+                        child: Center(
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                height: 20,
+                                width: 20,
+                                "assets/images/correct_circle_outline.png",
+                                fit: BoxFit.cover,
+                              ),
+                              sizedBoxWithWidth(10),
+                              Text(
+                                "Walking 4x/week",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.green,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                sizedBoxWithHeight(10),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.redcontainercolor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Notes",
+                            style: GoogleFonts.roboto(
+                              color: AppColors.black,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const Spacer(),
+                          Image.asset(
+                            height: 20,
+                            width: 20,
+                            "assets/images/warning_symbol.png",
+                            fit: BoxFit.cover,
+                          ),
+                        ],
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text(
+                        "Time for new HbA1c test",
+                        style: GoogleFonts.roboto(
+                          color: AppColors.red,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      sizedBoxWithHeight(10),
+                      Text(
+                        "Ask doctor about tapering medicine if trend continues",
+                        maxLines: 2,
+                        style: GoogleFonts.roboto(
+                          color: AppColors.red,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
+            ),
+          ),
+          sizedBoxWithHeight(15),
+          SizedBox(
+            height: 510.h,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.2, //5.0 in tab and laptop view
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+              ),
+              itemCount: provider.gridcardslist.length,
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {},
+                child: GridCards(
+                    subject: provider.gridcardslist[index]["subject"],
+                    image: provider.gridcardslist[index]["image"]),
+              ),
             ),
           ),
         ]),
