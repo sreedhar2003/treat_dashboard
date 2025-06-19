@@ -8,6 +8,7 @@ import 'package:treat_dashboard/helpers/sizedbox.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/controller/treat_dashboard_controller.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/buttons.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/grid_cards.dart';
+import 'package:treat_dashboard/screen/treat_dashboard/widgets/hba1c_graph.dart';
 
 class TreatDashboardScreen extends StatefulWidget {
   const TreatDashboardScreen({super.key});
@@ -22,28 +23,430 @@ class _TreatDashboardScreenState extends State<TreatDashboardScreen> {
     final provider = context.watch<DashboardTreatController>();
     ScreenUtil.getInstance().init(context);
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
+        body: SafeArea(
+            child: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(children: [
+          Row(
+            children: [
+              Text(
+                "Treat Dashboard",
+                style: GoogleFonts.roboto(
+                  color: AppColors.headingcolor,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const Spacer(),
+              Image.asset(
+                  height: 20,
+                  width: 20,
+                  "assets/images/crown.png",
+                  fit: BoxFit.cover),
+            ],
+          ),
+          sizedBoxWithHeight(10),
+          Container(
             padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Today's Treatment Summary",
+                  style: GoogleFonts.roboto(
+                    color: AppColors.headingcolor,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                sizedBoxWithHeight(10),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                              height: 20,
+                              width: 20,
+                              "assets/images/clock.png",
+                              fit: BoxFit.cover),
+                          sizedBoxWithWidth(5),
+                          Text(
+                            "Upcoming Appointment",
+                            style: GoogleFonts.roboto(
+                              color: AppColors.red,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      sizedBoxWithHeight(10),
+                      Row(
+                        children: [
+                          Image.asset(
+                              height: 78,
+                              width: 67,
+                              "assets/images/doctor_image.png",
+                              fit: BoxFit.cover),
+                          sizedBoxWithWidth(5),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Dr. Meera Arun",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.black,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              sizedBoxWithHeight(20),
+                              Text(
+                                "Nutritionist & Diet Consultant",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                "HealthyLife Clinic, NYC",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                "Tuesday, April 18 • 4:30 PM",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      sizedBoxWithHeight(10),
+                      Row(
+                        children: [
+                          Container(
+                            height: 36.h,
+                            width: 140.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: AppColors.green,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "View",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.white,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          Container(
+                            height: 36.h,
+                            width: 140.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: AppColors.red),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Cancel",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.red,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                sizedBoxWithHeight(10),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                            height: 20,
+                            width: 20,
+                            "assets/images/clock_orange.png",
+                            fit: BoxFit.cover),
+                        sizedBoxWithWidth(5),
+                        Text(
+                          "Due Today",
+                          style: GoogleFonts.roboto(
+                            color: AppColors.yellow,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          "6:00 PM",
+                          style: GoogleFonts.roboto(
+                            color: AppColors.yellow,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )
+                      ],
+                    ),
+                    sizedBoxWithHeight(10),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: AppColors.smallcontainercolor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                height: 35,
+                                width: 42,
+                                "assets/images/tablet_logo.png",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          sizedBoxWithWidth(10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Roaccutane, 30mg",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.green,
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              sizedBoxWithHeight(5),
+                              Text(
+                                "1 tablet/ day ",
+                                style: GoogleFonts.roboto(
+                                  color: AppColors.grey,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ]),
+                ),
+                sizedBoxWithHeight(10),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                                height: 20,
+                                width: 20,
+                                "assets/images/clock_orange.png",
+                                fit: BoxFit.cover),
+                            sizedBoxWithWidth(5),
+                            Text(
+                              "Due Today",
+                              style: GoogleFonts.roboto(
+                                color: AppColors.yellow,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        sizedBoxWithHeight(10),
+                        Text(
+                          "Upload lab report for diabetes review",
+                          style: GoogleFonts.roboto(
+                            color: AppColors.black,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        sizedBoxWithHeight(10),
+                        Buttons(subject: "Upload Now", ontap: () {}),
+                      ]),
+                ),
+              ],
+            ),
+          ),
+          sizedBoxWithHeight(20),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.containercolor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Smart Recommendations",
+                  style: GoogleFonts.roboto(
+                    color: AppColors.headingcolor,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                sizedBoxWithHeight(10),
+                Row(
+                  children: [
+                    Image.asset(
+                      height: 20,
+                      width: 20,
+                      "assets/images/correct_circle.png",
+                      fit: BoxFit.cover,
+                    ),
+                    sizedBoxWithWidth(5),
+                    Expanded(
+                      child: Text(
+                        "Time to schedule your 3-month review with Dr. Anjali.",
+                        maxLines: 2,
+                        style: GoogleFonts.roboto(
+                          color: AppColors.grey,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                sizedBoxWithHeight(10),
+                Row(
+                  children: [
+                    Image.asset(
+                      height: 20,
+                      width: 20,
+                      "assets/images/correct_circle.png",
+                      fit: BoxFit.cover,
+                    ),
+                    sizedBoxWithWidth(5),
+                    Expanded(
+                      child: Text(
+                        "Your BP has been stable for 60 days ask your doctor if medication tapering is possible.",
+                        maxLines: 2,
+                        style: GoogleFonts.roboto(
+                          color: AppColors.grey,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                sizedBoxWithHeight(10),
+                Buttons(subject: "Book Appointment", ontap: () {}),
+                sizedBoxWithHeight(10),
+                Buttons(subject: "Book Lab Test", ontap: () {}),
+              ],
+            ),
+          ),
+          sizedBoxWithHeight(25),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
+                    Image.asset(
+                      height: 24,
+                      width: 24,
+                      "assets/images/glucosemeter.png",
+                      fit: BoxFit.cover,
+                    ),
+                    sizedBoxWithWidth(5),
                     Text(
-                      "Treat Dashboard",
+                      "Diabetes",
+                      maxLines: 2,
                       style: GoogleFonts.roboto(
-                        color: AppColors.headingcolor,
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w500,
+                        color: AppColors.green,
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const Spacer(),
-                    Image.asset(
-                        height: 20,
-                        width: 20,
-                        "assets/images/crown.png",
-                        fit: BoxFit.cover),
                   ],
                 ),
                 sizedBoxWithHeight(10),
@@ -52,471 +455,57 @@ class _TreatDashboardScreenState extends State<TreatDashboardScreen> {
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Today's Treatment Summary",
+                        "HbA1c",
                         style: GoogleFonts.roboto(
-                          color: AppColors.headingcolor,
+                          color: AppColors.grey,
                           fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Image.asset(
-                                    height: 20,
-                                    width: 20,
-                                    "assets/images/clock.png",
-                                    fit: BoxFit.cover),
-                                sizedBoxWithWidth(5),
-                                Text(
-                                  "Upcoming Appointment",
-                                  style: GoogleFonts.roboto(
-                                    color: AppColors.red,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            sizedBoxWithHeight(10),
-                            Row(
-                              children: [
-                                Image.asset(
-                                    height: 78,
-                                    width: 67,
-                                    "assets/images/doctor_image.png",
-                                    fit: BoxFit.cover),
-                                sizedBoxWithWidth(5),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Dr. Meera Arun",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.black,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    sizedBoxWithHeight(20),
-                                    Text(
-                                      "Nutritionist & Diet Consultant",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.black,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                    Text(
-                                      "HealthyLife Clinic, NYC",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.black,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Tuesday, April 18 • 4:30 PM",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.black,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                            sizedBoxWithHeight(10),
-                            Row(
-                              children: [
-                                Container(
-                                  height: 36.h,
-                                  width: 140.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: AppColors.green,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "View",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.white,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const Spacer(),
-                                Container(
-                                  height: 36.h,
-                                  width: 140.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    border: Border.all(color: AppColors.red),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Cancel",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.red,
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                  height: 20,
-                                  width: 20,
-                                  "assets/images/clock_orange.png",
-                                  fit: BoxFit.cover),
-                              sizedBoxWithWidth(5),
-                              Text(
-                                "Due Today",
-                                style: GoogleFonts.roboto(
-                                  color: AppColors.yellow,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const Spacer(),
-                              Text(
-                                "6:00 PM",
-                                style: GoogleFonts.roboto(
-                                  color: AppColors.yellow,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )
-                            ],
-                          ),
-                          sizedBoxWithHeight(10),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  spreadRadius: 2,
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.smallcontainercolor,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Image.asset(
-                                      height: 35,
-                                      width: 42,
-                                      "assets/images/tablet_logo.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                sizedBoxWithWidth(10),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Roaccutane, 30mg",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.green,
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    sizedBoxWithHeight(5),
-                                    Text(
-                                      "1 tablet/ day ",
-                                      style: GoogleFonts.roboto(
-                                        color: AppColors.grey,
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ]),
-                      ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(
-                                      height: 20,
-                                      width: 20,
-                                      "assets/images/clock_orange.png",
-                                      fit: BoxFit.cover),
-                                  sizedBoxWithWidth(5),
-                                  Text(
-                                    "Due Today",
-                                    style: GoogleFonts.roboto(
-                                      color: AppColors.yellow,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              sizedBoxWithHeight(10),
-                              Text(
-                                "Upload lab report for diabetes review",
-                                style: GoogleFonts.roboto(
-                                  color: AppColors.black,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              sizedBoxWithHeight(10),
-                              Buttons(subject: "Upload Now", ontap: () {}),
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-                sizedBoxWithHeight(20),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.containercolor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Smart Recommendations",
-                        style: GoogleFonts.roboto(
-                          color: AppColors.headingcolor,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       sizedBoxWithHeight(10),
                       Row(
                         children: [
+                          Text(
+                            "6.4%",
+                            style: GoogleFonts.roboto(
+                              color: AppColors.black,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const Spacer(),
                           Image.asset(
-                            height: 20,
-                            width: 20,
+                            height: 13.33,
+                            width: 13.33,
                             "assets/images/correct_circle.png",
-                            fit: BoxFit.cover,
-                          ),
-                          sizedBoxWithWidth(5),
-                          Expanded(
-                            child: Text(
-                              "Time to schedule your 3-month review with Dr. Anjali.",
-                              maxLines: 2,
-                              style: GoogleFonts.roboto(
-                                color: AppColors.grey,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      sizedBoxWithHeight(10),
-                      Row(
-                        children: [
-                          Image.asset(
-                            height: 20,
-                            width: 20,
-                            "assets/images/correct_circle.png",
-                            fit: BoxFit.cover,
-                          ),
-                          sizedBoxWithWidth(5),
-                          Expanded(
-                            child: Text(
-                              "Your BP has been stable for 60 days ask your doctor if medication tapering is possible.",
-                              maxLines: 2,
-                              style: GoogleFonts.roboto(
-                                color: AppColors.grey,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      sizedBoxWithHeight(10),
-                      Buttons(subject: "Book Appointment", ontap: () {}),
-                      sizedBoxWithHeight(10),
-                      Buttons(subject: "Book Lab Test", ontap: () {}),
-                    ],
-                  ),
-                ),
-                sizedBoxWithHeight(25),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            height: 24,
-                            width: 24,
-                            "assets/images/glucosemeter.png",
                             fit: BoxFit.cover,
                           ),
                           sizedBoxWithWidth(5),
                           Text(
-                            "Diabetes",
-                            maxLines: 2,
+                            "In Reversal Zone",
                             style: GoogleFonts.roboto(
                               color: AppColors.green,
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
                       ),
-                      sizedBoxWithHeight(10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "HbA1c",
-                              style: GoogleFonts.roboto(
-                                color: AppColors.grey,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            sizedBoxWithHeight(10),
-                            Row(
-                              children: [
-                                Text(
-                                  "6.4%",
-                                  style: GoogleFonts.roboto(
-                                    color: AppColors.black,
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                const Spacer(),
-                                Image.asset(
-                                  height: 13.33,
-                                  width: 13.33,
-                                  "assets/images/correct_circle.png",
-                                  fit: BoxFit.cover,
-                                ),
-                                sizedBoxWithWidth(5),
-                                Text(
-                                  "In Reversal Zone",
-                                  style: GoogleFonts.roboto(
-                                    color: AppColors.green,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            sizedBoxWithHeight(40),
-                            Container(
-                              height: 142,
-                              width: 281,
-                              decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/hba1c_graph.png"),
-                                      fit: BoxFit.cover)),
-                            )
-                          ],
-                        ),
-                      ),
+                      sizedBoxWithHeight(40),
+                      Hba1cGraph(),
                       sizedBoxWithHeight(10),
                       Container(
                         width: double.infinity,
@@ -848,8 +837,8 @@ class _TreatDashboardScreenState extends State<TreatDashboardScreen> {
               ],
             ),
           ),
-        ),
+        ]),
       ),
-    );
+    )));
   }
 }
