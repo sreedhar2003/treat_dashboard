@@ -27,4 +27,15 @@ class DashboardTreatController with ChangeNotifier {
       "image": "assets/images/vitals.png",
     },
   ];
+  final List<double> values = [10, 9, 9, 7, 1, 1, 1];
+  final List<Color> colors = [
+    Colors.green,
+    Colors.green,
+    Colors.green,
+    Colors.green,
+    Colors.grey,
+    Colors.grey,
+    Colors.grey,
+  ];
+  final List<String> days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 }
