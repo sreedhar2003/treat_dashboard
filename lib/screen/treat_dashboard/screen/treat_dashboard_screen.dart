@@ -10,7 +10,6 @@ import 'package:treat_dashboard/screen/treat_dashboard/widgets/buttons.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/grid_cards.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/hba1c_graph.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/heartrate_indicator.dart';
-import 'package:treat_dashboard/screen/treat_dashboard/widgets/roundpercentage_card.dart';
 
 class TreatDashboardScreen extends StatefulWidget {
   const TreatDashboardScreen({super.key});
