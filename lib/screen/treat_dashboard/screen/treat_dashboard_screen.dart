@@ -9,6 +9,8 @@ import 'package:treat_dashboard/screen/treat_dashboard/controller/treat_dashboar
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/buttons.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/grid_cards.dart';
 import 'package:treat_dashboard/screen/treat_dashboard/widgets/hba1c_graph.dart';
+import 'package:treat_dashboard/screen/treat_dashboard/widgets/heartrate_indicator.dart';
+import 'package:treat_dashboard/screen/treat_dashboard/widgets/roundpercentage_card.dart';
 
 class TreatDashboardScreen extends StatefulWidget {
   const TreatDashboardScreen({super.key});
@@ -416,6 +418,90 @@ class _TreatDashboardScreenState extends State<TreatDashboardScreen> {
                 Buttons(subject: "Book Appointment", ontap: () {}),
                 sizedBoxWithHeight(10),
                 Buttons(subject: "Book Lab Test", ontap: () {}),
+              ],
+            ),
+          ),
+          sizedBoxWithHeight(25),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      height: 24,
+                      width: 24,
+                      "assets/images/heartrate_logo.png",
+                      fit: BoxFit.cover,
+                    ),
+                    sizedBoxWithWidth(5),
+                    Text(
+                      "Heart Rate",
+                      style: GoogleFonts.roboto(
+                        color: AppColors.headingcolor,
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                sizedBoxWithHeight(10),
+                Row(
+                  children: [
+                    // percentage indicator
+                    const HeartRateIndicator(
+                      bpm: 76,
+                      percent: 0.76,
+                    ),
+                    sizedBoxWithWidth(10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Status: ",
+                                  style: GoogleFonts.roboto(
+                                    color: AppColors.grey,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: "Normal",
+                                  style: GoogleFonts.roboto(
+                                    color: AppColors.green,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          sizedBoxWithHeight(10),
+                          Text(
+                            "Measured on 12 June 2025, 8:45 AM",
+                            maxLines: 2,
+                            style: GoogleFonts.roboto(
+                              color: AppColors.grey,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                sizedBoxWithHeight(20),
+                Buttons(subject: "Measure Heart Rate", ontap: () {}),
               ],
             ),
           ),
